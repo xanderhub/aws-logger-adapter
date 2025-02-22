@@ -2,17 +2,20 @@ import {Logger} from '@aws-lambda-powertools/logger';
 import path from "node:path";
 import * as fs from "fs";
 import {LogAttributes} from "@aws-lambda-powertools/logger/lib/cjs/types/logKeys";
+import {Configuration} from "./types/configuration";
 
-if(!process.env.AWS_LAMBDA_RUNTIME_API) {
-    process.env.POWERTOOLS_DEV = "true";
-}
-
-let config: { excludedKeys?: string[], globalAttributes?: LogAttributes } = {};
+let config: Configuration = {};
 
 try {
-    config = JSON.parse(fs.readFileSync(path.join(__dirname, 'logger.config.json'), 'utf-8'));
+    console.log("currentWorkingDirectory: " + process.cwd());
+    config = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'logger.config.json'), 'utf-8'));
 } catch (error) {
+    console.log(error);
     console.warn('logger.config.json file not found, using default configuration for logger');
+}
+
+if(!process.env.AWS_LAMBDA_RUNTIME_API && config.prettyPrint) {
+    process.env.POWERTOOLS_DEV = "true";
 }
 
 const excludedKeys: Set<string> = new Set(config.excludedKeys || []);
