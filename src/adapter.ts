@@ -24,13 +24,13 @@ const globalAttributes: LogAttributes = config.globalAttributes || {};
 
 
 const defaultLogger: Logger = new Logger({
-    jsonReplacerFn: (key, value) => maskedKeys.hasOwnProperty(key) ? maskedKeys[key] : value,
+    jsonReplacerFn: (key, value) => maskedKeys.hasOwnProperty(key) ? maskedKeys[key] : value || undefined,
     persistentKeys: globalAttributes
 });
 
 export function getLogger(attributes?: LogAttributes): Logger {
     return attributes ? new Logger({
-        jsonReplacerFn: (key, value) => maskedKeys.hasOwnProperty(key) ? maskedKeys[key] : value,
+        jsonReplacerFn: (key, value) => maskedKeys.hasOwnProperty(key) ? maskedKeys[key] : value || undefined,
         persistentKeys: {...globalAttributes, ...attributes}
     }) : defaultLogger;
 }
