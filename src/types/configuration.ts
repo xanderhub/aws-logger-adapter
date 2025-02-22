@@ -4,4 +4,4 @@ export type Configuration = {
     prettyPrint?: boolean,
     maskedKeys?: LogAttributes,
     globalAttributes?: LogAttributes
-}
+};
