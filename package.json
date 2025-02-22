@@ -1,0 +1,26 @@
+{
+  "name": "aws-logger-adapter",
+  "version": "1.0",
+  "description": "Adapter for @aws-lambda-powertools/logger with external configuration option and logger instance provider",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Alex Ivanov alex.ivn@outlook.com",
+  "keywords": [
+    "typescript",
+    "aws",
+    "logger",
+    "lambda",
+    "powertools",
+    "aws-lambda-powertools"
+  ],
+  "scripts": {
+    "build": "tsc --build tsconfig.json"
+  },
+  "dependencies": {
+    "@aws-lambda-powertools/logger": "^2.14.0"
+  },
+  "devDependencies": {
+    "ts-node": "10.9.2",
+    "typescript": "5.6.2"
+  }
+}
