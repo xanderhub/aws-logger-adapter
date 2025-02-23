@@ -1,6 +1,6 @@
 {
   "name": "aws-logger-adapter",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Adapter for @aws-lambda-powertools/logger with external configuration option and logger instance provider",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
