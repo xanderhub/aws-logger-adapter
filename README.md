@@ -47,7 +47,9 @@ The logger can be configured using a `logger.config.json` file. Create the file 
     "sampling_rate": null,
     "service": null,
     "user": "*** hidden by logger ***",
-    "password": "*** hidden by logger ***"
+    "password": "*** hidden by logger ***",
+    "long_list_of_objects": "*** omitted by logger ***",
+    "big_json_object": "*** omitted by logger ***"
   },
   "globalAttributes": {
     "project": "my-project",
